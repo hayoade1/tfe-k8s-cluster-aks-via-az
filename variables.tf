@@ -42,5 +42,5 @@ variable "environment" {
 }
 
 variable "public_key" {
-  description = "contents of SSH public key that will be used with AKS cluster id_rsa.pub"
+  description = "contents of SSH public key that will be used with AKS cluster"
 }
