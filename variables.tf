@@ -1,4 +1,4 @@
-variable "location" {
+variable "azure_location" {
   description = "Azure Location, e.g. North Europe"
   default = "East US"
 }
