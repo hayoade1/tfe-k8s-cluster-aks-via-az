@@ -36,7 +36,7 @@ resource "null_resource" "aks_cluster" {
 
 data "null_data_source" "aks_cluster_json" {
   inputs = {
-    aks_cluster_json = "${file("aks_cluster.json")}"
+    json = "${file("aks_cluster.json")}"
   }
   depends_on = ["null_resource.aks_cluster"]
 }
