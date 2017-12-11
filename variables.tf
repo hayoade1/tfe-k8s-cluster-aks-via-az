@@ -40,3 +40,7 @@ variable "environment" {
   description = "value passed to ACS Environment tag"
   default = "dev"
 }
+
+variable "public_key" {
+  description = "contents of SSH public key that will be used with AKS cluster id_rsa.pub"
+}
