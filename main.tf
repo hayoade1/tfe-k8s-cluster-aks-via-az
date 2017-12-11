@@ -30,7 +30,7 @@ resource "null_resource" "install_az" {
 # The Azure Provider does not yet have a resource for this
 resource "null_resource" "aks_cluster" {
   provisioner "local-exec" {
-    command = "az aks create --resource-group ${var.resource_group_name} --name ${var.cluster_name} --dns-name-prefix ${var.dns_prefix} --node-count ${var.agent_count} --node-vm-size ${var.vm_size} --admin-username ${var.admin_user} --kubernetes-version ${var.kubernetes_version} --service-principal $ARM_CLIENT_ID --client-secret $ARM_CLIENT_SECRET --ssh-key-value ${var.public_key} --tags 'Environment=${var.environment}' > aks_cluster.json"
+    command = "az aks create --resource-group ${var.resource_group_name} --name ${var.cluster_name} --dns-name-prefix ${var.dns_prefix} --node-count ${var.agent_count} --node-vm-size ${var.vm_size} --admin-username ${var.admin_user} --kubernetes-version ${var.kubernetes_version} --service-principal $ARM_CLIENT_ID --client-secret $ARM_CLIENT_SECRET --ssh-key-value \"${var.public_key}\" --tags 'Environment=${var.environment}' > aks_cluster.json"
   }
   depends_on = ["null_resource.install_az"]
 }
