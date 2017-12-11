@@ -2,7 +2,7 @@
 This Terrform configuration provides an example for provisioning an AKS cluster with Terraform Enterprise (TFE) which requires a different process than what would be used when running Terraform on a local machine since the Azure CLI binary, az, is not present on TFE servers.
 
 ## Introduction
-This Terraform configuration will create an Azure resource group, install the az binary, run the `az login` command, and then run the `az aks create` command to create the AKS cluster. Note that it uses a null_resource with a local-exec provisioner to create the AKS cluster since the Terraform Azure provider does not yet have a resource for AKS clusters.
+This Terraform configuration will create an Azure resource group, install the az binary, run the `az login` command, and then run the `az aks create` command to create the AKS cluster. Note that it uses a null_resource with a local-exec provisioner to create the AKS cluster since the Terraform Azure provider does not yet have a resource for AKS clusters. Note that several variables are available to support customizing the AKS cluster that is created. 
 
 ## Instructions
 You can use the original GitHub repository, rberlind/tfe-k8s-cluster-aks or create a fork of it. You do not actually need to clone the repository (or any fork of it) to your local machine since the Terraform code will be running on the Terraform Enterprise server after TFE downloads the code from GitHub.
