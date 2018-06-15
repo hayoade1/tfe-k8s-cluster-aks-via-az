@@ -16,10 +16,7 @@ resource "null_resource" "install_az" {
     command = "echo \"deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main\" | sudo tee /etc/apt/sources.list.d/azure-cli.list"
   }
   provisioner "local-exec" {
-    command = "uname -a"
-  }
-  provisioner "local-exec" {
-    command = "cat /proc/version"
+    command = "lsb_release -cs"
   }
   provisioner "local-exec" {
     command = "cat /etc/issue"
