@@ -13,13 +13,7 @@ resource "azurerm_resource_group" "k8sexample" {
 
 resource "null_resource" "install_az" {
   provisioner "local-exec" {
-    command = "echo \"deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main\" | sudo tee /etc/apt/sources.list.d/azure-cli.list"
-  }
-  provisioner "local-exec" {
-    command = "lsb_release -cs"
-  }
-  provisioner "local-exec" {
-    command = "cat /etc/issue"
+    command = "echo \"deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ xenial main\" | sudo tee /etc/apt/sources.list.d/azure-cli.list"
   }
   provisioner "local-exec" {
     command = "curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -"
