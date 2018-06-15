@@ -22,6 +22,9 @@ resource "null_resource" "install_az" {
     command = "cat /proc/version"
   }
   provisioner "local-exec" {
+    command = "cat /etc/issue"
+  }
+  provisioner "local-exec" {
     command = "curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -"
   }
   provisioner "local-exec" {
